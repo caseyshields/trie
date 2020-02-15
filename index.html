@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Tries</title>
-<link href="../site.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <title>Tries</title>
+    <style>
+        svg {
+            width : 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        body {
+            background-color:#777;
+        }
+        .overlay {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+        .node {
+            fill: lightgray;
+            stroke: black;
+        }
+        g.node text {
+            text-anchor : middle;
+            dominant-baseline : middle;
+            font-size : 2em;
+            fill : black;
+        }
+        .link {
+            stroke: black;
+            stroke-width: 5px;
+            fill: none;
+        }
+        .root { fill: lightgreen; }
+        .active { fill: lightblue; }
+        .leaf { fill: lightcoral; }
+    </style>
 </head>
 <body>
     <div class="overlay">
         <h1> Trie </h1>
-        <!-- <input id="word" type="text" value="water"/>-->
         <p> Type letters to add them to the trie. </p>
         <p> Hit enter to start a new word.</p>
         <h4> link strength:
@@ -18,7 +51,7 @@
     <section>
         <svg id="trie"
             preserveAspectRatio="xMidYMid meet"
-            viewbox="-600 -400 1200 900">
+            viewbox="-500 -500 1000 1000">
         </svg>
     </section>
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -55,45 +88,6 @@
     function adjust(force) {
         graph.adjust(force);
     }
-</script>
-<style>
-svg {
-    width : 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-}
-body {
-    background-color:#777;
-}
-.overlay {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-}
-.node {
-    fill: lightgray;
-    stroke: black;
-}
-g.node text {
-    text-anchor : middle;
-    dominant-baseline : middle;
-    font-size : 2em;
-    fill : black;
-}
-.link {
-    stroke: black;
-    stroke-width: 5px;
-    fill: none;
-}
-.root { fill: lightgreen; }
-.active { fill: lightblue; }
-.leaf { fill: lightcoral; }
-
-/* section { background-color: #888; } */
-</style>
-<script>
     // let wwords = [
     //     // "origami", "original", "or", "orthogonal",
     //     // "origin", "ornithopter", "oriented", "orb",
