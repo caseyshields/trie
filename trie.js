@@ -4,10 +4,8 @@
 function createTrie() {
 
     // declare simulation dataset and root node
-    let nodes = [];
+    let nodes = [{ symbol:'', edge:[], x:0, y:0 }];
     let edges = [];
-    
-    nodes[0] = { symbol:'', edge:[], x:0, y:0 };
 
     return {root, get, put, append, nodes, edges};
 
@@ -67,42 +65,6 @@ function createTrie() {
         }
         return node;
     }
+
+    // TODO support deletion
 }
-    // // adds the given string to the trie
-    // function add( node, word ) {
-    //     let next2 = node;
-    //     for(let n=0; n<word.length; n++)
-    //         next2 = addSymbol(next2, word, n);
-    //     // todo do this loop on a timer, updating styling...
-    // }
-
-    // // adds a single node to the trie and refreshes the graph
-    // function addSymbol( node, word, index ) {
-    //     // find the transition for the next symbol
-    //     let c = word[ index ];
-    //     let next = node.suffix[c];
-
-    //     // if the transition does not exist
-    //     if (!next) {
-    //         // create the node
-    //         next = {
-    //             symbol: c,
-    //             suffix: [],
-    //             x: node.x,
-    //             y: node.y
-    //         };
-    //         node.suffix[c] = next;
-
-    //         // create the edge
-    //         let edge = {
-    //             source: node,
-    //             target: next
-    //         };
-
-    //         // update the simulation data structures
-    //         edges.push(edge);
-    //         nodes.push(next);
-    //         // todo update styling
-    //     }
-    //     return next;
-    // }
